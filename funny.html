@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <title>Hiiiiii</title>
+    <style>
+        p {
+            text-align: center;
+            font-size: 32px;
+            font-family: Candara, Oswald;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 25%;
+        }
+    </style>
+</head>
+
+<body>
+    <p>วันนี้เล่นดอทกันน้าาาาาาาาา ขอร้องงงงง</p>
+    <img src="https://media.tenor.com/zGm5acSjHCIAAAAM/cat-begging.gif" style="width: 300px; height: 300px;">
+</body>
+<title>Botões</title>
+<style>
+    #botao1 {
+        position: fixed;
+        top: 68%;
+        left: 55%;
+        /* transform: translate(-50%, -50%); */
+    }
+
+    #botao2 {
+        position: absolute;
+        left: 40%;
+        top: 68%;
+    }
+</style>
+</head>
+
+<body>
+    
+    <button id="botao1">จัดไป</button>
+    <button id="botao2">ไม่เล่น</button>
+    <script>
+        const randomNumber = async (start, end) => {
+            return await Math.floor(Math.random() * (end - start)) + start;
+        }
+
+        const button2 = document.getElementById('botao2');
+        let button_top = 40;
+        let button_left = 40;
+        let random_num_top = Math.floor(Math.random() * 30) + 30;
+        let random_num_left = Math.floor(Math.random() * 30) + 30;
+        console.log("start: " + random_num_top + ", " + random_num_left);
+        button2.addEventListener('mouseover', async function () {
+            if (button_left) {
+                while (random_num_top > button_top - 3 && random_num_top < button_top + 3) {
+                    random_num_top = await randomNumber(50, 80);
+                }
+                button_top = random_num_top;
+                console.log("top: " + button_top);
+                while (random_num_left > button_left - 3 && random_num_left < button_left + 3) {
+                    random_num_left = await randomNumber(30, 70);
+                }
+                button_left = random_num_left;
+                console.log("left = " + button_left);
+            } else {
+                button_left = 40;
+            }
+            this.style.left = button_left + '%';
+            this.style.top = button_top + '%';
+        });
+
+    </script>
+    <script>
+        document.getElementById('botao1').addEventListener('click', function () {
+            alert('เย่!!! 2 ทุ่มเจอกัน');
+        });
+        document.getElementById('botao2').addEventListener('click', function () {
+            alert('ก็ได้ วันหลังก็ได้ TT');
+        });
+    </script>
+</body>
+
+</html>
